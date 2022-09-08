@@ -201,9 +201,9 @@ func renderServiceRoutes(service spec.Service, groups []spec.Group, paths swagge
 				}
 				if strings.ToUpper(route.Method) == http.MethodGet {
 					for _, member := range defineStruct.Members {
-						if strings.Contains(member.Tag, "path") {
-							continue
-						}
+						// if strings.Contains(member.Tag, "path") {
+						// 	continue
+						// }
 						if embedStruct, isEmbed := member.Type.(spec.DefineStruct); isEmbed {
 							for _, m := range embedStruct.Members {
 								parameters = append(parameters, renderStruct(m))
